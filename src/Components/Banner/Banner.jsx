@@ -5,10 +5,10 @@ import heroPng from "../../assets/hero.png"
 const Banner = () => {
   return (
     <div className="text-center p-4 lg:p-20 pb-0 lg:pb-0 space-y-4">
-      <h1 className="text-6xl font-bold">
+      <h1 className="text-4xl lg:text-6xl font-bold">
         We Build <br /> <span className="text-blue-900">Productive</span> Apps
       </h1>
-      <p className="w-1/2 mx-auto">
+      <p className="lg:w-1/2 mx-auto">
         At APP.CHAI, we craft innovative apps designed to make everyday life
         simpler, smarter, and more exciting.Our goal is to turn your ideas into
         digital experiences that truly make an impact.
