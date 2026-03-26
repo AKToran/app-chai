@@ -57,7 +57,7 @@ const Nav = () => {
         </ul>
       </div>
       <div className="navbar-end ">
-        <a className="btn bg-blue-900 text-white"> <span className="text-lg"><FaGithub/></span> Contribute</a>
+        <a href="https://github.com/AKToran/" target="_blank" className="btn bg-blue-900 text-white"> <span className="text-lg"><FaGithub/></span> Contribute</a>
       </div>
     </div>
   );
