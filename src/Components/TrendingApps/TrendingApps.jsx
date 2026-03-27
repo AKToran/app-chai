@@ -16,7 +16,7 @@ const TrendingApps = ({ appsPromise }) => {
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
         {topApps.map((app) => (
-          <AppCard app={app} />
+          <AppCard key={app.id} app={app} />
         ))}
       </div>
       <div className="mt-8 text-center">
