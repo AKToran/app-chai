@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaDownload, FaStar, FaThumbsUp } from "react-icons/fa6";
 import { useLoaderData, useParams } from "react-router";
 import {
@@ -6,19 +6,21 @@ import {
   Bar,
   XAxis,
   YAxis,
-  CartesianGrid,
   Tooltip,
-  Legend,
 } from "recharts";
 import errorIcon2 from '../../assets/App-Error.png';
+import { setToLocalStorage } from "../../Utilities/localStorage";
 
 const AppDetails = () => {
   const { id } = useParams();
   const allApps = useLoaderData();
 
   const app = allApps.find((app) => app.id == id);
-
   const data = app?.ratings.toReversed();
+
+  const [isInstalled, setIsInstalled] = useState(false);
+
+
 
   if(!app){
     return(
@@ -29,6 +31,11 @@ const AppDetails = () => {
             <a className='btn bg-blue-700 text-white' href="/">Go Back</a>
           </div>
     )
+  }
+
+  const handleInstall = (id) =>{
+    setToLocalStorage(id);
+    setIsInstalled(true);
   }
 
   return (
@@ -60,9 +67,12 @@ const AppDetails = () => {
               <h3 className="text-3xl font-bold">{app.reviews}</h3>
             </div>
           </div>
-          <button className="btn btn-primary w-fit">
-            Install Now ({app.size}MB)
-          </button>
+          {isInstalled === false? <button onClick={()=>handleInstall(app.id)} className="btn btn-primary w-fit">
+          Install Now ({app.size})
+          </button>:<button disabled className="btn btn-primary w-fit">
+          Installed ({app.size})
+          </button>}
+          
         </div>
       </div>
       <hr className="my-8" />
