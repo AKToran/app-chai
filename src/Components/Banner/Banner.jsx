@@ -4,7 +4,7 @@ import heroPng from "../../assets/hero.png"
 
 const Banner = () => {
   return (
-    <div className="text-center p-4 lg:p-20 pb-0 lg:pb-0 space-y-4">
+    <div className="text-center p-4 lg:p-20 pb-0 lg:pb-0 space-y-4 bg-slate-50">
       <h1 className="text-4xl lg:text-6xl font-bold">
         We Build <br /> <span className="text-blue-900">Productive</span> Apps
       </h1>
