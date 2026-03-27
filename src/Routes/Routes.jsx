@@ -5,6 +5,7 @@ import AllApps from "../Components/AllApps/AllApps";
 import AppDetails from "../Components/AppDetails/AppDetails";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Loading from "../Components/Loading/Loading";
+import Installations from "../Pages/Installations/Installations";
 
 
 export const router = createBrowserRouter([
@@ -27,6 +28,12 @@ export const router = createBrowserRouter([
         HydrateFallback: Loading,
         loader: ()=> fetch('/data.json'),
         Component: AppDetails
+      },
+      {
+        path: 'installation',
+        HydrateFallback: Loading,
+        loader: ()=> fetch('/data.json'),
+        Component: Installations
       },
       {
         path:"*",
