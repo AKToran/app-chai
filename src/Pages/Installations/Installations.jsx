@@ -5,6 +5,7 @@ import {
 } from "../../Utilities/localStorage";
 import { useLoaderData } from "react-router";
 import { FaDownload, FaStar } from "react-icons/fa6";
+import { toast } from "react-toastify";
 
 const Installations = () => {
   const allApps = useLoaderData();
@@ -14,6 +15,7 @@ const Installations = () => {
   });
 
   const handleUninstall = (id) => {
+    toast.warn("App uninstalled!")
     const remainingApps = apps.filter((app) => app.id != id);
     setApps(remainingApps);
     removeFromLocalStorage(id);

@@ -10,6 +10,7 @@ import {
 } from "recharts";
 import errorIcon2 from '../../assets/App-Error.png';
 import { setToLocalStorage } from "../../Utilities/localStorage";
+import { toast } from "react-toastify";
 
 const AppDetails = () => {
   const { id } = useParams();
@@ -19,8 +20,6 @@ const AppDetails = () => {
   const data = app?.ratings.toReversed();
 
   const [isInstalled, setIsInstalled] = useState(false);
-
-
 
   if(!app){
     return(
@@ -34,6 +33,7 @@ const AppDetails = () => {
   }
 
   const handleInstall = (id) =>{
+    toast.success("App installed Successfully!")
     setToLocalStorage(id);
     setIsInstalled(true);
   }
@@ -68,9 +68,9 @@ const AppDetails = () => {
             </div>
           </div>
           {isInstalled === false? <button onClick={()=>handleInstall(app.id)} className="btn btn-primary w-fit">
-          Install Now ({app.size})
+          Install Now ({app.size})MB
           </button>:<button disabled className="btn btn-primary w-fit">
-          Installed ({app.size})
+          Installed ({app.size})MB
           </button>}
           
         </div>
