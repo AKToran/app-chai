@@ -12,7 +12,6 @@ const AllApps = () => {
   }
 
   const searchResult = allApps.filter(app=> app.title.toLowerCase().includes(searchInput.toLocaleLowerCase()));
-  console.log(searchResult);
 
   return (
     <div className="p-4 lg:p-20 lg:pt-12 bg-slate-100">
