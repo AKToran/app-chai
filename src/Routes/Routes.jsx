@@ -4,13 +4,14 @@ import Apps from '../Pages/Apps/Apps'
 import Home from "../Pages/Home/Home";
 import AllApps from "../Components/AllApps/AllApps";
 import AppDetails from "../Components/AppDetails/AppDetails";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 
 export const router = createBrowserRouter([
   {
     path:'/',
     Component: Root,
-    hydrateFallbackElement: <h3>loading.....</h3>,
+    hydrateFallbackElement: ErrorPage,
     children: [
       {
         index: true,
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
         path: 'appDetails/:id',
         loader: ()=> fetch('/data.json'),
         Component: AppDetails
+      },
+      {
+        path:"*",
+        Component: ErrorPage
       }
     ]
   }
